@@ -1,7 +1,10 @@
 class FileAction
-  attr_accessor :file
+  def initialize(file)
+    @file = file
+  end
   def index
-    
+    file = File.open(@file)
+    puts file.readlines.map(&:chomp)
   end
   def find (id)
 
