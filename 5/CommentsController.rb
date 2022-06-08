@@ -10,12 +10,12 @@ class CommentsController
   end
 
   def index
-    puts 'Вывод всех комментарием к каждому посту '
+    puts 'Output all comments for all posts '
     @posts.each{ |entity| puts entity.to_s}
   end
 
   def create
-    print 'Введите идентификатор статьи к которой добавить комментарий'
+    print 'Input id of article which you want to write comment'
     requestedId = gets.chomp.to_i
     positionInArray = -1
 
@@ -26,14 +26,14 @@ class CommentsController
     }
 
     if(positionInArray == -1)
-      puts 'Поста с таким идентификатором найдено не было'
+      puts 'Post with this index not found'
       return
     end
 
-    puts 'Введите сущность комментария'
-    print 'Введите содержимое комментария = '
+    puts 'Input instance of comment'
+    print ' text = '
     body = gets.chomp
-    print 'Автор комментария = '
+    print 'author = '
     author = gets.chomp
 
     newId = @comments.length + 1
@@ -43,12 +43,12 @@ class CommentsController
   end
 
   def index
-    puts 'Вывод всех комментариев постов'
+    puts 'Output all comments'
     @comments.each{ |entity| puts entity.to_s}
   end
 
   def show
-    puts 'Введите индекс комментария, который необходимо получить'
+    puts 'Input index of comment, which you want get '
     requestedIndex = gets.chomp.to_i
     positionInArray = -1
     @comments.each{ |entity, index|
@@ -60,13 +60,13 @@ class CommentsController
     if(positionInArray != -1)
       return positionInArray
     else
-      puts 'Комментарий не был найден'
+      puts 'Comment not found'
     end
 
   end
 
   def update
-    puts 'Введите индекс сущности, которой необходимо обновить'
+    puts 'Input index of instance which you want to update'
     requestedId = gets.chomp().to_i
     positionInArray = -1
 
@@ -77,19 +77,19 @@ class CommentsController
     }
 
     if(positionInArray != -1)
-      puts 'Введите обновленные значения для поста'
+      puts 'Input new value for comment'
       @comments[positionInArray].body = gets.chomp()
       @comments[positionInArray].author = gets.chomp()
 
     else
-      puts 'По данному индексу не было найдено постов'
+      puts 'Post with this index not found'
     end
 
     index()
   end
 
   def destroy
-    puts 'Введите индентификатор сущности, которую необходимо удалить'
+    puts 'Input id of instance, which you want to delete'
     requestedId = gets.chomp.to_i
     positionInArray = -1
 
@@ -103,7 +103,7 @@ class CommentsController
     if(positionInArray != -1)
       @comments.delete_at(positionInArray)
     else
-      puts "Элемент с Id " + requestedId + "не был найден"
+      puts "Instance with Id " + requestedId + "not found"
     end
   end
 end

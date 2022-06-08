@@ -9,12 +9,12 @@ class PostsController
   end
 
   def index
-    puts 'Вывод всех постов'
+    puts 'All post'
     @posts.each{ |entity| puts entity.to_s}
   end
 
   def show
-    puts 'Введите индекс'
+    puts 'Input index'
     requestedIndex = gets.chomp.to_i
     positionInArray = -1;
     @posts.each{ |entity, index|
@@ -26,18 +26,18 @@ class PostsController
     if(positionInArray != -1)
       return positionInArray
     else
-      puts 'Пост не был найден'
+      puts 'Post not found'
     end
 
   end
 
   def create
-    puts 'Введите сущность '
-    print 'Заголовок статьи = '
+    puts 'Input instance '
+    print 'Header  = '
     title = gets.chomp
-    print 'Описание статьи = '
+    print 'description  = '
     description = gets.chomp
-    print 'Автор статьи = '
+    print 'author  = '
     author = gets.chomp
     newId = @posts.length + 1
 
@@ -47,7 +47,7 @@ class PostsController
   end
 
   def update
-    puts 'Введите индекс сущности, которой необходимо обновить'
+    puts 'Input index of instance which you want to update'
     requestedId = gets.chomp().to_i
     positionInArray = -1
 
@@ -58,20 +58,20 @@ class PostsController
     }
 
     if(positionInArray != -1)
-      puts 'Введите обновленные значения для поста'
+      puts 'Input new value for post'
       @posts[positionInArray].title = gets.chomp()
       @posts[positionInArray].description = gets.chomp()
       @posts[positionInArray].author = gets.chomp()
 
     else
-      puts 'По данному индексу не было найдено постов'
+      puts 'Post with this index not found'
     end
 
     index()
   end
 
   def destroy
-    puts 'Введите индентификатор сущности, которую необходимо удалить'
+    puts 'Input id of instance, which you want to delete'
     requestedId = gets.chomp.to_i
     positionInArray = -1
 
@@ -85,7 +85,7 @@ class PostsController
     if(positionInArray != -1)
       @posts.delete_at(positionInArray)
     else
-      puts "Элемент с Id " + requestedId + "не был найден"
+      puts "Instance with Id " + requestedId + "not found"
     end
   end
 end
