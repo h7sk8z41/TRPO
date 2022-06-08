@@ -1,3 +1,9 @@
+require_relative "DataSource.rb"
+require_relative "Post.rb"
+require_relative "Comment.rb"
+require_relative "CommentsController.rb"
+require_relative "PostsController.rb"
+require_relative "Resource.rb"
 
 class Router
   def initialize

@@ -1,6 +1,6 @@
 class CashMachine
   def initialize()
-    @fileName = 'rubycourse/4/3/Balance'
+    @fileName = 'rubycourse/5/Balance'
     if(File.exist?(@fileName))
       @file = File.open(@fileName)
     else

@@ -1,5 +1,5 @@
-require './Resource'
-require './DataSource'
+require_relative 'Resource'
+require_relative 'DataSource'
 
 class PostsController
   extend Resource
